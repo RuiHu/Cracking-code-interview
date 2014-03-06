@@ -1,0 +1,53 @@
+import java.util.Arrays;
+
+public class cracking1_7 {
+	public static void setZero(int[][] matrix){
+		int row_len = matrix.length;
+		int col_len = matrix[0].length;
+		int[] row = new int [row_len];
+		int[] col = new int [col_len];
+		
+		for (int i=0; i< row_len; i++){
+			for (int j=0; j<col_len; j++){
+				if (matrix[i][j]==0){
+					row[i]=1;
+					col[j]=1;
+				}
+			}
+		}
+		
+		for (int i=0; i< row_len; i++){
+			for (int j=0; j<col_len; j++){
+				if (row[i]==1 || col[j]==1){
+					matrix[i][j]=0;
+				}
+			}
+		}	
+	}
+	
+	public static void main(String[] args){
+		// initialize matrix
+		int[][] matrix = new int[2][2];
+		matrix[0][0]=1;
+		matrix[0][1]=1;
+		matrix[1][0]=1;
+		matrix[1][1]=0;
+		
+		int row_len = matrix.length;
+		int col_len = matrix[0].length;
+		for (int i=0; i<row_len; i++){
+			for (int j=0; j<col_len; j++){
+				System.out.println(matrix[i][j]);
+			}
+		}
+		
+		setZero(matrix);
+
+		for (int i=0; i<row_len; i++){
+			for (int j=0; j<col_len; j++){
+				System.out.println(matrix[i][j]);
+			}
+		}
+	}
+	
+}
