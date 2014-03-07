@@ -1,0 +1,46 @@
+public class cracking1_3 {
+	 public static void removeDup(char[] s) {
+		 //edge cases should also be checked.
+		 if (s==null) return;
+		 if (s.length<2) return;
+		 
+		 //int j = 0; The answer do the initialization of j in the i loop
+		 int tail=1;// set tail start at 0. 
+		 
+		 for (int i=1; i<s.length; ++i){
+			 int j;
+			 for ( j=0; j<i; ++j){
+				 if (s[j]==s[i]) break;
+			 }
+			 
+			 if (j==i){
+				 s[tail]=s[i];
+				 tail++;
+			 }
+			 
+		 }
+		 //s[tail]=0;
+		 // I changed the answer from the book by setting the chars behind tail all to 0
+		 // Instead just set the char at index tail to 0.
+		 for(int i=s.length-1;i>=tail;i--){
+	            s[i] = 0;
+		 }
+	 }
+	 
+	 public static void main(String[] args){
+		 String s = "aabbb";
+		 char[] s_array = s.toCharArray();
+		 System.out.println(s_array);
+		 removeDup(s_array);
+		 //String answer = s_array.toString();
+		 //System.out.println(s_array);
+		 //System.out.print(answer);
+		 //[C@2b890c67 ; When I interview with 23andMe, this turns out.
+		 
+		 System.out.println(s_array);
+		 String result="";
+		 for (int i=0;i<s_array.length;i++){
+			 result += Character.toString(s_array[i]);
+		 }
+		 System.out.println(result);
+	 }
