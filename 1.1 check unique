@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class cracking1_1 {
+	public static boolean checkUnique1(String str){
+		int checker = 0;
+		
+		//The book says that we need to assume that the string is only lowercase 'a' through 'z'
+		//Indeed, I tried "ab1" "ab**" and this method still works fine.
+		for (int i=0; i<str.length(); i++){
+			int val = str.charAt(i)-'a';
+			if ((checker & (1<<val)) >0) return false;
+			checker |= 1<<val;
+		}
+		return true;
+	}
+	
+	public static boolean checkUnique2(String str){
+		HashMap<Character,Boolean> map = new HashMap<Character,Boolean>();
+		
+		for (int i=0; i<str.length(); i++){
+			char iter = str.charAt(i);
+			if (map.get(iter) !=null) return false;
+			map.put(iter,true);
+		}
+		return true;
+		
+	}
+	
+	public static boolean checkUnique3(String str){
+		boolean[] checker = new boolean[256];
+		
+		for (int i=0; i<str.length(); i++){
+			int iter = str.charAt(i);
+			if (checker[iter]==true) return false;
+			checker[iter]=true;
+		}
+		return true;
+	}
+	
+	public static void main (String[] args){
+		String candidate ="ab";
+		boolean result1 = checkUnique1(candidate);
+		System.out.println(result1);
+		boolean result2 = checkUnique2(candidate);
+		System.out.println(result2);
+		boolean result3 = checkUnique3(candidate);
+		System.out.println(result3);
+	}
+}
