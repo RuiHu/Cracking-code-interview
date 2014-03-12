@@ -26,6 +26,7 @@ public class cracking1_1 {
 		
 	}
 	
+	//Assume ASCII
 	public static boolean checkUnique3(String str){
 		boolean[] checker = new boolean[256];
 		
