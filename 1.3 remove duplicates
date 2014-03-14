@@ -35,7 +35,6 @@ public class cracking1_3 {
 		 //String answer = s_array.toString();
 		 //System.out.println(s_array);
 		 //System.out.print(answer);
-		 //[C@2b890c67 ; When I interview with 23andMe, this turns out.
 		 
 		 System.out.println(s_array);
 		 String result="";
