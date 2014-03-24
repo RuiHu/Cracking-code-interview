@@ -1,0 +1,15 @@
+public static int sum_n(int sum, int c, int n) {
+    int ways = 0;
+    if(sum <= n){
+        if(sum == n) return 1;
+        if(c >= 25)
+            ways += sum_n(sum+25, 25, n);
+        if(c >= 10)
+            ways += sum_n(sum+10, 10, n);
+        if(c >= 5)
+            ways += sum_n(sum+5, 5, n);
+        if(c >= 1)
+            ways += sum_n(sum+1, 1, n);
+    }
+    return ways;
+}
